@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Contactos</h2>
+<hr>
+<a class="btn btn-primary" href="{{ url_for('add') }}">Nuevo</a>
+<button class="btn btn-outline-danger" disabled href="{{ url_for('add') }}">Editar</button>
+<button class="btn btn-outline-danger" disabled href="{{ url_for('add') }}">Eliminar</button>
+<hr>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Localidad</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in contacts %}
+        <tr>
+            <th scope="row">
+                <input type="checkbox" value="{{c.id}}">
+            </th>
+            <td>{{c.name}}</td>
+            <td>{{c.lastName}}</td>
+            <td>{{c.address}}</td>
+            <td>{{c.city}}</td>
+            <td>{{c.phone}}</td>
+            <td>{{c.email}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

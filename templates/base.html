@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Agenda Flask</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"></link>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></link>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    </head>
+
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Agenda</h1>
+                <p class="lead">Flask + MySQL</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            {% block content %}
+            {% endblock %}
+        </div>
+        </div>
+        
+    </body>
+</html>
