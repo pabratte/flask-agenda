@@ -12,7 +12,7 @@ contactos = [
         'email': 'rsanchez@gmail.com'
     },
     {
-        'id': 1,
+        'id': 2,
         'name': 'Homero',
         'lastName': 'Simpson',
         'address': 'Av. Siempreviva 123',
@@ -44,3 +44,9 @@ def obtener_contactos():
 
 def eliminar_contactos(id_contactos):
     pass    
+
+def obtener_contacto(id_contacto):
+    for c in contactos:
+        if c['id'] == id_contacto:
+            return c
+    return None

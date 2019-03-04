@@ -4,13 +4,13 @@
 <h2>Contactos</h2>
 <hr>
 <a class="btn btn-primary" href="{{ url_for('add') }}">Nuevo</a>
-<button class="btn btn-outline-danger" disabled href="{{ url_for('add') }}">Editar</button>
-<button class="btn btn-outline-danger" disabled href="{{ url_for('add') }}">Eliminar</button>
+<button id="btnEdit" class="btn btn btn-outline-secondary" disabled href="{{ url_for('add') }}">Editar</button>
+<button id="btnRemove" class="btn btn-outline-danger" disabled href="{{ url_for('add') }}">Eliminar</button>
 <hr>
-<table class="table table-sm">
+<table class="table table-sm table-hover">
     <thead>
-        <tr>
-            <th scope="col"></th>
+        <tr >
+            <th style="display: none;" scope="col"></th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Dirección</th>
@@ -21,10 +21,10 @@
     </thead>
     <tbody>
         {% for c in contacts %}
-        <tr>
-            <th scope="row">
-                <input type="checkbox" value="{{c.id}}">
-            </th>
+        <tr class="clickable-row">
+            <td style="display: none;" class="id_contact">
+                {{c.id}}
+            </td>
             <td>{{c.name}}</td>
             <td>{{c.lastName}}</td>
             <td>{{c.address}}</td>
@@ -35,4 +35,29 @@
         {% endfor %}
     </tbody>
 </table>
+{% endblock %}
+
+{% block extrascripts %}
+<script>
+$('table').on('click', '.clickable-row', function(event) {
+  if($(this).hasClass('table-primary')){
+    $(this).removeClass('table-primary')
+    $('#btnEdit').attr("disabled", "true")
+    $('#btnRemove').attr('disabled', "true")
+  }else{
+    $(this).addClass('table-primary').siblings().removeClass('table-primary');
+    $('#btnEdit').removeAttr('disabled')
+    $('#btnRemove').removeAttr('disabled')
+  }
+});
+
+function get_selected_id(){
+    return parseInt($('tr.clickable-row.table-primary').find('.id_contact').text())
+}
+
+$('#btnEdit').on('click', function(){
+    window.location = "edit/"+get_selected_id()
+});
+</script>
+
 {% endblock %}
