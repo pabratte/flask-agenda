@@ -3,9 +3,9 @@
 {% block content %}
 
 
-<h2>Nuevo contacto</h2>
+<h2>{{title}}</h2>
 <hr>
-    <form id="addForm" action="{{ url_for('add') }}" method="POST">  
+    <form id="addEditForm" action="{{action}}" method="POST">  
         {{ form.hidden_tag() }}
         {% for field in form %}
             {% if field.type == "StringField" %}
@@ -22,7 +22,7 @@
         <div class="form-group row">
           <div class="col-sm-10">
             <a class="btn btn-outline-secondary" href="{{ url_for('index') }}">Volver</a>
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" class="btn btn-primary">{{action_label}}</button>
           </div>
         </div>
       </form>
@@ -31,8 +31,8 @@
 {% block extrascripts %}
 <script>
 $(document).ready(function(){
-    $("#addForm").on('submit', function(){
-        $("#addForm").validate();
+    $("#addEditForm").on('submit', function(){
+        $("#addEditForm").validate();
     })
 });
 </script>

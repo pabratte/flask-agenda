@@ -1,15 +1,23 @@
+# Ejemplo Agenda Flask
+
+## Pasos para instalar
+
+1. Crear entorno virtual
 
 
-## Crear entorno virtual
-
-
-## Correr
+1. Instalar dependencias
 
 ```bash
-export FLASK_APP=app.py
-export FLASK_DEBUG=1
-python -m flask run
+pip install -r requirements.txt
 ```
 
+## Ejecutar
+
+```bash
+FLASK_APP=app.py FLASK_DEBUG=1 python -m flask run
+```
+
+
+# Cambiar para implementar en la base de datos
 
 # Post-get-redirect
