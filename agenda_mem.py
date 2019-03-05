@@ -22,23 +22,36 @@ contactos = [
     }
 ]
 
-'''
-Recibe un objeto con la forma:
-nuevoContacto = {
-    'name': 'Rick',
-    'lastName': 'Sanchez',
-    'address': '?',
-    'city': 'Washington',
-    'phone': '012589642565',
-    'email': 'rsanchez@gmail.com'
-},
-'''
-def agregar_contacto(nuevo_contacto):
-    nuevo_contacto['id'] = len(contactos)+1
-    contactos.append(nuevo_contacto)
+
+def agregar_contacto(name, lastName, address, city, phone, email):
+    '''
+    Agrega un contacto a la lista
+    '''
+    contactos.append(
+        {
+            'id': len(contactos)+1,
+            'name': name,
+            'lastName': lastName,
+            'address': address,
+            'city': city,
+            'phone': phone,
+            'email': email
+        }
+    )
 
 
-def obtener_contactos(filtro=''):
+def obtener_contactos():
+    '''
+    Devuelve la lista completa de contactos
+    '''
+    return contactos
+
+
+def filtrar_contactos(filtro=''):
+    '''
+    Devuelve la lista de contactos cuyo nombre
+    o apellido coincida con el término filtro
+    '''
     filtro = filtro.lower()
     if filtro == '':
         return contactos
@@ -51,27 +64,36 @@ def obtener_contactos(filtro=''):
 
 
 def eliminar_contacto(id_contacto):
+    '''
+    Elimina un contacto de la lista a partir de su id
+    '''
     for i in range(0, len(contactos)):
         if contactos[i]['id'] == int(id_contacto):
-            print "Eliminando...."
             contactos.pop(i)
             return
     
 
 def obtener_contacto(id_contacto):
+    '''
+    Devuelve un diccionario con los datos de un
+    contacto de la lista a partir de su id
+    '''
     for c in contactos:
         if c['id'] == id_contacto:
             return c
     return None
 
 
-def editar_contacto(id_contacto, info_contacto):
+def editar_contacto(id_contacto, name, lastName, address, city, phone, email):
+    '''
+    Modifica la información del contacto con el id_contacto especificado
+    '''
     for c in contactos:
         if c['id'] == int(id_contacto):
-            c['name'] = info_contacto['name']
-            c['lastName'] = info_contacto['lastName']
-            c['address'] = info_contacto['address']
-            c['city'] = info_contacto['city']
-            c['phone'] = info_contacto['phone']
-            c['email'] = info_contacto['email']
+            c['name'] = name
+            c['lastName'] = lastName
+            c['address'] = address
+            c['city'] = city
+            c['phone'] = phone
+            c['email'] = email
             return
