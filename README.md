@@ -2,12 +2,12 @@
 
 ## Pasos para instalar
 
-1. Crear entorno virtual
+### Crear entorno virtual
 ```bash
 python3 -m venv venv
 ```
 
-1. Activar entorno virtual
+### Activar entorno virtual
 
 En Linux:
 ```bash
@@ -19,7 +19,7 @@ En Windows:
 venv\\Scripts\\activate
 ```
 
-1. Instalar dependencias
+### Instalar dependencias
 
 ```bash
 pip install -r requirements.txt
