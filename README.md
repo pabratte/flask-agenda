@@ -1,33 +1,20 @@
 # Ejemplo Agenda Flask
 
+Ejemplo de una agenda de contactos simple desarrollada utilizando Flask. 
+
 ## Pasos para instalar
 
-### Crear entorno virtual
 ```bash
+# crear entorno virtual
 python3 -m venv venv
-```
 
-### Activar entorno virtual
-
-En Linux:
-```bash
+# activar entorno virtual
 source venv/bin/activate
-```
 
-En Windows:
-```bash
-venv\\Scripts\\activate
-```
-
-### Instalar dependencias
-
-```bash
+# instalar dependencias
 pip install -r requirements.txt
-```
 
-## Ejecutar
-
-```bash
+# ejecutar
 FLASK_APP=app.py FLASK_DEBUG=1 python -m flask run
 ```
 
