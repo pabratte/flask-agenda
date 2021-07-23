@@ -1,13 +1,7 @@
-body{
-    max-width: 1000px;
-    margin: auto auto;
+header{
     margin-top: 20px;
-}
-
-.header{
     padding: 40px;
     background: #cccccc;
     margin-bottom: 30px;
     border-radius: 5px;
-
 }
